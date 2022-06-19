@@ -1,0 +1,164 @@
+#include<iostream>
+int fruit_count=0;
+using namespace std;
+class fruitshop
+{
+	public:
+		int fruit_id;
+		string fruit_name;
+		int fruit_quantity;
+		int fruit_price;
+		
+void input()
+{
+	cout<<"enter the fruit id"<<endl;
+	cin>>fruit_id;
+	cout<<"enter the fruit name"<<endl;
+	cin>>fruit_name;
+	cout<<"enter the fruit quantity"<<endl;
+	cin>>fruit_quantity;
+	cout<<"enter the fruit price"<<endl;
+	cin>>fruit_price;
+}
+void display()
+{
+	cout<<"the fruit id is:"<<endl;
+	cout<<fruit_id<<endl;
+	cout<<"enter the fruit name is :"<<endl;
+	cout<<fruit_name<<endl;
+	cout<<"the fruit quantity is:"<<endl;
+	cout<<fruit_quantity<<endl;
+	cout<<"the fruit price is:"<<endl;
+	cout<<fruit_price<<endl;
+}
+	
+void set_price()
+{
+	cout<<"enter the fruit price"<<endl;
+	cin>>fruit_price;
+
+}
+
+void set_quantity()
+{
+	cout<<"enter the fruit quantity"<<endl;
+	cin>>fruit_quantity;
+
+}
+
+
+};
+int menu()
+{
+	cout<<"********************MENU**************************"<<endl;
+	cout<<" 1.ADD FRUITS"<<endl;
+	cout<<" 2.DISPLAY FRUITS"<<endl;
+	cout<<" 3.SEARCH FRUITS"<<endl;
+	cout<<" 4.CHANGE FRUIT PRICE"<<endl;
+	cout<<"	5.CHANGE FRUIT QUANTITY"<<endl;
+	int choice;
+	cout<<"enter the choice"<<endl;
+	cin>>choice;
+	return choice;
+}
+
+void add_fruit(fruitshop* frt)
+{
+	frt[fruit_count].input();
+	fruit_count++;
+}
+
+void disp_fruit(fruitshop* frt)
+{
+	for(int i=0;i<fruit_count;i++)
+	{
+		frt[i].display();
+	}
+}
+
+
+
+int search_fruit(fruitshop* frt)
+{
+   int search_id;
+   cout<<"enter the id to be searched"<<endl;
+   cin>>search_id;
+   for(int i=0;i<fruit_count;i++)
+   {
+   	
+   	if(search_id == frt[i].fruit_id)
+   	{
+   		
+	frt[i].display();
+	}
+	else
+	cout<<"entered id is wrong"<<endl;	
+   }
+   
+   }
+
+int setprice_fruit(fruitshop* frt)
+{
+   int search_id;
+   cout<<"enter the id of the fruit whose price is to be changed"<<endl;
+   cin>>search_id;
+   for(int i=0;i<fruit_count;i++)
+   {
+   	
+   	if(search_id == frt[i].fruit_id)
+   	{
+   		
+	frt[i].set_price();
+	}
+	else
+	cout<<"entered id is wrong"<<endl;	
+   }
+   
+   }
+
+int setquantity_fruit(fruitshop* frt)
+{
+   int search_id;
+   cout<<"enter the id of the fruit whose quantity is to be changed"<<endl;
+   cin>>search_id;
+   for(int i=0;i<fruit_count;i++)
+   {
+   	
+   	if(search_id == frt[i].fruit_id)
+   	{
+   		
+	frt[i].set_quantity();
+	}
+	else
+	cout<<"entered id is wrong"<<endl;	
+   }
+   
+   }
+
+
+int main()
+{
+	fruitshop frt[100];
+while(1)
+{
+int choice=menu();
+
+switch (choice)
+{
+	case 1:add_fruit(frt);
+			break;
+	case 2:disp_fruit(frt);
+			break;
+	case 3:search_fruit(frt);
+			break;
+	case 4:setprice_fruit(frt);
+			break;
+	case 5:setquantity_fruit(frt);
+			break;
+	default:
+		cout<<"wrong choice"<<endl;
+		
+}
+}
+}
+
